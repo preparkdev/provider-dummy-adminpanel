@@ -21,6 +21,7 @@ import { MapPin, TrendingUp, Clock, ArrowUpDown, Calendar } from "lucide-react";
 import { BarChartComponent } from "@/src/components/charts/bar-chart-component";
 import { getAllParkingStats, formatCurrency, getDateRange } from "@/src/lib/analytics";
 import { parkings as allParkings } from "@/src/data/parkings";
+import { ClientOnly } from "@/src/components/client-only";
 
 type SortOption = "earnings-desc" | "earnings-asc" | "bookings-desc" | "bookings-asc" | "name-asc" | "name-desc";
 
@@ -80,7 +81,8 @@ export default function ParkingsPage() {
   const selectedStats = allParkingStats.find((s) => s.parkingId === selectedParkingId);
 
   return (
-    <div className="flex-1 space-y-8 p-8">
+    <ClientOnly>
+      <div className="flex-1 space-y-8 p-8">
       {/* Header */}
       <div className="flex items-end justify-between">
         <div className="space-y-1">
@@ -317,5 +319,6 @@ export default function ParkingsPage() {
         </DialogContent>
       </Dialog>
     </div>
+    </ClientOnly>
   );
 }

@@ -22,6 +22,7 @@ import {
 import { parkings } from "@/src/data/parkings";
 import { bookings } from "@/src/data/bookings";
 import { BookingType, BookingStatus } from "@/src/types";
+import { ClientOnly } from "@/src/components/client-only";
 
 export default function AnalyticsPage() {
   const [dateFilter, setDateFilter] = useState<string>("all");
@@ -209,7 +210,8 @@ export default function AnalyticsPage() {
   }));
 
   return (
-    <div className="flex-1 space-y-8 p-8">
+    <ClientOnly>
+      <div className="flex-1 space-y-8 p-8">
       {/* Header with Date Filter */}
       <div className="flex items-end justify-between">
         <div className="space-y-1">
@@ -344,5 +346,6 @@ export default function AnalyticsPage() {
         </Card>
       </div>
     </div>
+    </ClientOnly>
   );
 }

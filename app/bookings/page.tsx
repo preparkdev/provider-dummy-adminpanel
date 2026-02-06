@@ -16,6 +16,7 @@ import {
   SelectValue,
 } from "@/src/components/ui/select";
 import { getDateRange } from "@/src/lib/analytics";
+import { ClientOnly } from "@/src/components/client-only";
 
 export default function BookingsPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -60,7 +61,8 @@ export default function BookingsPage() {
   );
 
   return (
-    <div className="flex-1 space-y-8 p-8">
+    <ClientOnly>
+      <div className="flex-1 space-y-8 p-8">
       {/* Header */}
       <div className="flex items-end justify-between">
         <div className="space-y-1">
@@ -178,5 +180,6 @@ export default function BookingsPage() {
         </CardContent>
       </Card>
     </div>
+    </ClientOnly>
   );
 }
