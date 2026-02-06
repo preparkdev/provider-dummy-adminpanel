@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-// @ts-ignore
+// @ts-expect-error: CSS import for global styles
 import "./globals.css";
 import { DashboardLayout } from "@/src/components/layout/dashboard-layout";
 

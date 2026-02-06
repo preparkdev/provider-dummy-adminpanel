@@ -41,11 +41,11 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   useEffect(() => {
     const checkMobile = () => {
       setIsCollapsed(window.innerWidth < 768);
+      setHasMounted(true);
     };
 
     // Check on mount
     checkMobile();
-    setHasMounted(true);
 
     // Add resize listener
     window.addEventListener('resize', checkMobile);

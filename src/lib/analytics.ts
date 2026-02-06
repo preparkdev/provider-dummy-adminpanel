@@ -64,24 +64,6 @@ function formatToMonth(date: string | Date | undefined | null): string {
   }
 }
 
-// Helper function to format date to YYYY-MM-DD
-function formatToDay(date: string | Date | undefined | null): string {
-  if (!date) return "";
-
-  try {
-    const d =
-      typeof date === "string" ? new Date(date) : date;
-    if (isNaN(d.getTime())) {
-      console.warn("Invalid date:", date);
-      return "";
-    }
-    return d.toISOString().slice(0, 10);
-  } catch (e) {
-    console.error("Error formatting date to day:", date, e);
-    return "";
-  }
-}
-
 /**
  * Calculate total earnings from bookings
  */
